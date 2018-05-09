@@ -1,4 +1,4 @@
-package xyz.funnycoding
+package xyz.funnycoding.config
 
 import com.typesafe.config.{Config, ConfigFactory}
 

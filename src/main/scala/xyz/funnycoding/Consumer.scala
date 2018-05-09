@@ -5,11 +5,11 @@ import java.util.Properties
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import scala.collection.JavaConverters._
 import java.util.regex.Pattern
-import Settings._
+import xyz.funnycoding.config.Settings._
 
 object Consumer extends App {
 
-  val  props = new Properties()
+  val props = new Properties()
   props.put("bootstrap.servers", kafkaServer)
   props.put("key.deserializer", keyDeserializer)
   props.put("value.deserializer", valueDeserializer)
