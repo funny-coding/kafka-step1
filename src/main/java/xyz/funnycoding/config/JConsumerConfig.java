@@ -29,6 +29,8 @@ public class JConsumerConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+        props.put(ConsumerConfig.RETRY_BACKOFF_MS_CONFIG, 500);
+        props.put(ConsumerConfig.RECONNECT_BACKOFF_MS_CONFIG, 500);
 
         return props;
     }
