@@ -17,7 +17,7 @@ object Producer extends App {
   props.put("value.serializer", valueSerializer)
   val producer = new KafkaProducer[String, String](props)
 
-  val filename = "host.log"
+  val filename = "input/host.log"
   var i = 0
   for (line <- Source.fromResource(filename).getLines) {
     i += 1

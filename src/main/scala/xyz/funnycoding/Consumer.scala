@@ -13,6 +13,7 @@ object Consumer extends App {
   props.put("bootstrap.servers", kafkaServer)
   props.put("key.deserializer", keyDeserializer)
   props.put("value.deserializer", valueDeserializer)
+  props.put("group.id", "something")
 
   val consumer = new KafkaConsumer[String, String](props)
   consumer.subscribe(util.Collections.singletonList("logs"))
