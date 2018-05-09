@@ -13,15 +13,15 @@ object Consumer extends App {
   props.put("bootstrap.servers", kafkaServer)
   props.put("key.deserializer", keyDeserializer)
   props.put("value.deserializer", valueDeserializer)
-  props.put("group.id", "something")
+  props.put("group.id", consumerGroupId)
 
   val consumer = new KafkaConsumer[String, String](props)
-  consumer.subscribe(util.Collections.singletonList("logs"))
-  val records = consumer.poll(100000).asScala.map{
+  consumer.subscribe(util.Collections.singletonList(topicName))
+  val records = consumer.poll(1000000000).asScala.map{
     record=>{
       val value = Pattern.compile(" ").split(record.value())
-      (value(0) ++ " " ++ value(1),
-        value(2) match {
+      (value(0),
+        value(1) match {
           case "[info]" => "info"
           case "[warn]" => "warn"
           case "[error]" => "error"
