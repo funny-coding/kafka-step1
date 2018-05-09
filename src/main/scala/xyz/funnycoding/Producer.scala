@@ -8,7 +8,7 @@ import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Callback
 import scala.io.Source
-import Settings._
+import xyz.funnycoding.config.Settings._
 
 object Producer extends App {
   val  props = new Properties()
